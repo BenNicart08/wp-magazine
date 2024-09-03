@@ -1771,8 +1771,8 @@ button[type="button"] {
 @font-face {
   font-family: "general-regular";
 
-  src: url("../dist/fonts/GeneralSans-Regular.woff"),
-    url("../dist/fonts/GeneralSans-Regular.woff2");
+  src: url("../fonts/GeneralSans-Regular.woff"),
+    url("../fonts/GeneralSans-Regular.woff2");
 
   font-display: swap;
 }
@@ -1780,8 +1780,8 @@ button[type="button"] {
 @font-face {
   font-family: "general-semibold";
 
-  src: url("../dist/fonts/GeneralSans-Semibold.woff"),
-    url("../dist/fonts/GeneralSans-Semibold.woff2");
+  src: url("../fonts/GeneralSans-Semibold.woff"),
+    url("../fonts/GeneralSans-Semibold.woff2");
 
   font-display: swap;
 }
@@ -1789,8 +1789,8 @@ button[type="button"] {
 @font-face {
   font-family: "general-medium";
 
-  src: url("../dist/fonts/GeneralSans-Medium.woff"),
-    url("../dist/fonts/GeneralSans-Medium.woff2");
+  src: url("../fonts/GeneralSans-Medium.woff"),
+    url("../fonts/GeneralSans-Medium.woff2");
 
   font-display: swap;
 }
