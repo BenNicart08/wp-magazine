@@ -43,6 +43,7 @@
 
 
 <?php if($magazine->have_posts()) : while($magazine->have_posts()) : $magazine->the_post()?>
+
 <section class="mb-10 feature-story">
         <div class="container">
           <article class="grid gap-4 py-5 md:grid-cols-2">
@@ -78,6 +79,7 @@
         echo "no more post";
     endif;
     wp_reset_postdata()?>
+
 
 
 
@@ -136,10 +138,10 @@
 
         
               </div>
-              <a href="<?php echo site_url( '/magazines' )?>" class="link-arrow"
+              <a href="<?php echo site_url( '/magazine' )?>" class="link-arrow"
                 >All Magazines
                 <svg class="icon-sm" role="image">
-                  <use xlink:href="./img/sprite.svg#icon-arrow-right"></use>
+                  <use xlink:href="<?php echo get_template_directory_uri()?>/img/sprite.svg#icon-arrow-right"></use>
                 </svg>
               </a>
             </div>
@@ -217,7 +219,7 @@
             <a href="<?php echo site_url( '/podcasts')?>" class="link-arrow right" id="podcast-link"
               >All Episodes
               <svg class="icon-sm" role="image">
-                <use xlink:href="./img/sprite.svg#icon-arrow-right"></use>
+                <use xlink:href="<?php echo get_template_directory_uri()?>/img/sprite.svg#icon-arrow-right"></use>
               </svg>
             </a>
           </div>
@@ -255,7 +257,7 @@
                 </p>
                 <a href="#" class="absolute right-5 bottom-5">
                   <svg class="icon-lg" role="image">
-                    <use xlink:href="./img/sprite.svg#icon-podcast-arrow"></use>
+                    <use xlink:href="<?php echo get_template_directory_uri()?>/img/sprite.svg#icon-podcast-arrow"></use>
                   </svg>
                 </a>
               </div>
@@ -287,6 +289,68 @@
           </div>
         </div>
 </section>
+
+<section class="mb-40 author">
+        <div class="container">
+          <div
+            class="flex items-center justify-between py-10 pb-20 border-t border-dark"
+            >
+            <h2 class="uppercase">Author</h2>
+            <a href="<?php echo site_url('authors')?>" class="link-arrow right" id="author-link"
+              >All Authors
+              <svg class="icon-sm" role="image">
+                <use xlink:href="<?php echo get_template_directory_uri()?>/img/sprite.svg#icon-arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+          <div
+            class="grid overflow-hidden border md:grid-cols-2 border-dark author-grid"
+            >
+
+            <?php
+                  $authors = new WP_Query (array(
+                      'post_type' => 'authors',
+                      'posts_per_page' => 4
+                  ))
+            ?>
+
+            <?php if($authors->have_posts()) : while($authors->have_posts()) : $authors->the_post()?>
+
+            <div
+              class="flex flex-col items-center gap-5 p-10 grid-item md:flex-row"
+              >
+              <span class="after"></span>
+              <span class="before"></span>
+              <div class="overflow-hidden rounded-full">
+                <img src="<?php echo get_field('thumbnail')?>" alt="" />
+              </div>
+              <div>
+                <h3 class="article-header"><?php the_title()?></h3>
+                <div class="items-center justify-between -mt-4 md:flex">
+                  <ul class="items-center gap-8 mb-5 md:mb-0 md:flex">
+                    <li>
+                      <span class="font-generalSemiBold">Job:</span> <?php echo get_field('job')?>
+                    </li>
+                    <li>
+                      <span class="font-generalSemiBold">City:</span> <?php echo get_field('city')?>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <?php endwhile;
+              else: 
+                  echo "no more post";
+              endif;
+              wp_reset_postdata()?>
+
+          </div>
+        </div>
+</section>
+
+
+
 
 
 

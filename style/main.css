@@ -2043,3 +2043,25 @@ button[type="button"] {
     text-align: left;
   }
 }
+
+.pagination > * {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: white;
+  margin: 0 5px;
+}
+
+.pagination .next,
+.prev {
+  background-color: transparent;
+}
+
+.pagination .current {
+  background-color: white;
+  outline: 1px solid #000;
+  color: #000;
+}
